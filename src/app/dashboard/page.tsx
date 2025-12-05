@@ -150,7 +150,8 @@ export default function DashboardPage() {
         })
 
         const results = await Promise.all(metricsPromises)
-        setMetrics(results)
+        // setMetrics(results)
+        setMetrics(results as ServerMetrics[])
       } catch (err) {
         setError('Failed to fetch server metrics')
         console.error('Error fetching metrics:', err)
