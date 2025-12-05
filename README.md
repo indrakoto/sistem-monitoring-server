@@ -1,4 +1,4 @@
-# 💻 SISTEM-MONITORING-SERVER
+# SISTEM MONITORING SERVER
 
 Aplikasi pemantauan server ini dibangun menggunakan **Next.js** (dengan TypeScript), **Prisma** sebagai ORM, dan **SQLite** sebagai database untuk lingkungan pengembangan (Development).
 
@@ -23,7 +23,7 @@ Ikuti langkah-langkah ini untuk menjalankan proyek di lingkungan lokal Anda.
 Buka terminal dan *clone* repositori dari GitHub:
 
 ```bash
-git clone [git@github.com:indrakoto/sistem-monitoring-server.git](git@github.com:indrakoto/sistem-monitoring-server.git)
+git clone git@github.com:indrakoto/sistem-monitoring-server.git
 cd sistem-monitoring-server
 ```
 
