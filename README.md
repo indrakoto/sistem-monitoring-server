@@ -23,7 +23,7 @@ Ikuti langkah-langkah ini untuk menjalankan proyek di lingkungan lokal Anda.
 Buka terminal dan *clone* repositori dari GitHub:
 
 ```bash
-git clone git@github.com:indrakoto/sistem-monitoring-server.git
+git clone https://github.com/indrakoto/sistem-monitoring-server.git
 cd sistem-monitoring-server
 ```
 
