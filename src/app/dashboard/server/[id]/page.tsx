@@ -155,6 +155,12 @@ export default function ServerDetailPage() {
     async function fetchMetrics() {
       try {
         const token = localStorage.getItem('auth_token')
+
+        if (!server) {
+          // Bisa return loading, atau cukup hindari fetch
+          return null; // atau <div>Loading...</div>
+        }
+
         const metricsResponse = await fetch(server.url_api, {
           headers: {
             'Authorization': token || ''
