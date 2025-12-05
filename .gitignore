@@ -31,11 +31,25 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env* !.env.example # Tambahkan ini jika Anda memiliki file .env.example untuk konfigurasi
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+# next-env.d.ts - DIHAPUS. File ini harus di-commit agar TypeScript berfungsi dengan baik di lingkungan lain.
+
+# Prisma (sudah ada yang ini)
+/src/generated/prisma
+
+# === PENAMBAHAN SPESIFIK UNTUK PRISMA & SQLITE ===
+
+# Prisma Client (Biasanya tidak perlu di-commit jika tidak di-generate ke folder khusus)
+# Jika Prisma Client di-generate di node_modules, ini sudah dicakup di atas.
+
+# SQLite Database Files
+*.db
+*.sqlite
+/prisma/*.db # Abaikan file database di folder prisma
+/prisma/*.sqlite
