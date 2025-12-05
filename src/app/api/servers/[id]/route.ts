@@ -41,59 +41,6 @@ export async function GET(
   }
 }
 
-// PUT /api/servers/[id] - Update server
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  try {
-    const id = parseInt(params.id)
-    
-    if (isNaN(id)) {
-      return NextResponse.json(
-        { error: 'Invalid server ID' },
-        { status: 400 }
-      )
-    }
-    
-    const body = await request.json()
-    const { name, url_api, description, is_active } = body
-    
-    // Cek jika server ada
-    const existingServer = await prisma.server.findUnique({
-      where: { id }
-    })
-    
-    if (!existingServer) {
-      return NextResponse.json(
-        { error: 'Server not found' },
-        { status: 404 }
-      )
-    }
-    
-    // Update server
-    const updatedServer = await prisma.server.update({
-      where: { id },
-      data: {
-        name: name || existingServer.name,
-        url_api: url_api || existingServer.url_api,
-        description: description !== undefined ? description : existingServer.description,
-        is_active: is_active !== undefined ? is_active : existingServer.is_active,
-        updatedAt: new Date()
-      }
-    })
-    
-    return NextResponse.json(updatedServer)
-    
-  } catch (error) {
-    console.error('Error updating server:', error)
-    return NextResponse.json(
-      { error: 'Failed to update server' },
-      { status: 500 }
-    )
-  }
-}
-
 // DELETE /api/servers/[id] - Delete server
 // Next.js 13+ butuh ini untuk extract params
 export async function DELETE(
