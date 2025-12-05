@@ -1,0 +1,23 @@
+[Unit]
+Description=System Monitoring Dashboard (Next.js + Prisma + SQLite)
+After=network.target
+
+[Service]
+Type=simple
+User=indra
+Group=indra
+WorkingDirectory=/var/www/frontend/sistem-monitoring-server
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+# Opsional: jika kamu pakai .env, aktifkan baris berikut:
+# EnvironmentFile=/var/www/frontend/sistem-monitoring-server.env
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=system-monitoring
+
+[Install]
+WantedBy=multi-user.target
